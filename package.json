@@ -5,7 +5,7 @@
   "main": "lib/psc.js",
   "bin": "bin/psc",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test && bin/psc test/fixtures/fib.pluggie"
   },
   "repository": {
     "type": "git",
