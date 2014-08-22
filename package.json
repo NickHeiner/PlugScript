@@ -1,0 +1,24 @@
+{
+  "name": "PlugScript",
+  "version": "0.0.0",
+  "description": "A toy programming language",
+  "main": "bin/psc.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickHeiner/PlugScript"
+  },
+  "keywords": [
+    "pl",
+    "compiler",
+    "toy"
+  ],
+  "author": "Nick Heiner <nth23@cornell.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickHeiner/PlugScript/issues"
+  },
+  "homepage": "https://github.com/NickHeiner/PlugScript"
+}
