@@ -1,0 +1,3 @@
+#! /usr/lib/node
+
+require('..')(process.argv.slice(2));
