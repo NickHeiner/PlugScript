@@ -1,12 +1,9 @@
 'use strict';
 
-var chai = require('chai'),
-    expect = chai.expect,
+var expect = require('chai').expect,
     _ = require('lodash'),
     tokenize = require('../../lib/tokenize'),
     destreamify = require('../lib/destreamify');
-
-chai.use(require('chai-as-promised'));
 
 describe('tokenize', function() {
 
