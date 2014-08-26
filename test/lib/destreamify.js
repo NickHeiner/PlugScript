@@ -10,7 +10,6 @@ function destreamify(stream, input) {
         result = [];
 
     inputStream
-        .queue(input)
         .pipe(stream)
         .pipe(through(function write(data) { 
             console.log('data', data);
@@ -20,6 +19,7 @@ function destreamify(stream, input) {
             deferred.resolve(result);
         }));
 
+    inputStream.queue(input);
     inputStream.end();
 
     return deferred.promise;

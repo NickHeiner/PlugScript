@@ -13,7 +13,7 @@ describe('tokenize', function() {
         runTokenize = _.partial(destreamify, tokenize());
     });
 
-    it.only('splits words', function() {
+    it('splits words', function() {
         return expect(runTokenize('foo bar baz')).to.eventually.equal(['foo', 'bar', 'baz']);
     });
 
