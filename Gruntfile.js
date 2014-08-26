@@ -12,13 +12,19 @@ module.exports = function(grunt) {
 
             lib: {
                 files: {src: 'lib/**/*.js'}
+            },
+
+            test: {
+                files: {
+                    src: 'test/**/*.js'
+                }
             }
         },
 
         mochaTest: {
             unit: {
                 files: {
-                    src: 'test/unit/**/*.js'
+                    src: ['test/unit/**/*.js', 'test/config/**/*.js']
                 }
             }
         },
@@ -32,6 +38,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'jshint:lib',
+        'jshint:test',
         'mochaTest',
         'shell:e2e'
     ]);
