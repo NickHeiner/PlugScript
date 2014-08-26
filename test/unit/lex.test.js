@@ -2,8 +2,8 @@
 
 var expect = require('chai').expect,
     _ = require('lodash'),
-    tokenize = require('../../lib/tokenize'),
-    lex = require('../lib/lex');
+    lex = require('../../lib/lex'),
+    destreamify = require('../lib/destreamify');
 
 describe('lex', function() {
 

@@ -17,6 +17,13 @@ module.exports = function(grunt) {
             test: {
                 files: {
                     src: 'test/**/*.js'
+                },
+                options: {
+                    globals: {
+                        it: true,
+                        describe: true,
+                        beforeEach: true
+                    }
                 }
             }
         },
