@@ -5,7 +5,7 @@
   "main": "lib/psc.js",
   "bin": "bin/psc",
   "scripts": {
-    "test": "grunt test && bin/psc test/fixtures/fib.pluggie"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -23,10 +23,12 @@
   },
   "homepage": "https://github.com/NickHeiner/PlugScript",
   "devDependencies": {
+    "chai": "^1.9.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-mocha-test": "^0.11.0",
+    "grunt-shell": "^0.7.0",
     "load-grunt-tasks": "^0.6.0"
   },
   "dependencies": {
