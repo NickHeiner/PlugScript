@@ -5,7 +5,7 @@ var expect = require('chai').expect,
     tokenize = require('../../lib/tokenize'),
     destreamify = require('../lib/destreamify');
 
-describe.only('tokenize', function() {
+describe('tokenize', function() {
 
     var runTokenize;
 
