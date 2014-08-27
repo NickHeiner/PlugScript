@@ -12,10 +12,8 @@ function destreamify(stream, input) {
     inputStream
         .pipe(stream)
         .pipe(through(function write(data) { 
-            console.log('data', data);
             result.push(data);
         }, function end() {
-            console.log('end', arguments);
             deferred.resolve(result);
         }));
 
