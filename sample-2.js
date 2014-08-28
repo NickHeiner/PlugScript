@@ -49,7 +49,7 @@ var grammar = {
          // ["- e",    "$$ = -$2", {"prec": "UMINUS"}],
          ['IDENTIFIER', '$$ = yytext'],
          ["( e )",  "$$ = '(' + $2 + ')'"],
-         ['FUNCTION IDENTIFIER -> e', '$$ = "function " + $2 + "() { return " + $4 + ";}"'],
+         ['FUNCTION IDENTIFIER IDENTIFIER -> e', '$$ = "function " + $2 + "(" + $3 + ") { return " + $5 + ";}"'],
          ["NUMBER", "$$ = Number(yytext)"],
          ["IDENTIFIER e", "$$ = $1 + '(' + $2 + ')'"],
          ['IF e THEN e ELSE e', '$$ = "(" + $2 + ") ? (" + $4 + ") : (" + $6 + ")"']
@@ -62,6 +62,6 @@ var grammar = {
 var parser = new Parser(grammar);
 
 console.log(parser.parse("fib n"));
-console.log(parser.parse("fun foo -> foo 3"));
+console.log(parser.parse("fun foo n -> n"));
 console.log(parser.parse("if 3 then 2 else 1"));
-console.log(parser.parse("fun bar -> if 3 then 2 else 1"));
+console.log(parser.parse("fun bar y -> if y then 2 else 1"));
