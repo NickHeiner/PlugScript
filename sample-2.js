@@ -29,13 +29,7 @@ var grammar = {
       ["left", "<="],
       ["left", "+", '-'],
       ["left", "IDENTIFIER"],
-      ["left", "IF"],
-      // ["left", "+", "-"],
-      // ["left", "*", "/"],
-      // ["left", "^"],
-      // ["right", "!"],
-      // ["right", "%"],
-      // ["left", "UMINUS"]
+      ["left", "IF"]
    ],
 
    "bnf": {
