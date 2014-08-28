@@ -11,18 +11,13 @@ var grammar = {
          ["\\s+",                    "/* skip whitespace */"],
          ["fun",                     "return 'FUNCTION'"],
          ['->',                      'return "->"'],
-         // ["\\*",                     "return '*'"],
-         // ["\\/",                     "return '/'"],
-         // ["-",                       "return '-'"],
+         ['if',                      'return "IF"'],
+         ['then',                    'return "THEN"'],
+         ['else',                    'return "ELSE"'],
          ["\\+",                     "return '+'"],
          ["\\-",                     "return '-'"],
-         // ["\\^",                     "return '^'"],
-         // ["!",                       "return '!'"],
-         // ["%",                       "return '%'"],
          ["\\(",                     "return '('"],
          ["\\)",                     "return ')'"],
-         // ["PI\\b",                   "return 'PI'"],
-         // ["E\\b",                    "return 'E'"],
          ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER'"],
          ["[a-zA-Z0-9]+\\b",         "return 'IDENTIFIER'"],
          ["$",                       "return 'EOF'"]
@@ -57,6 +52,7 @@ var grammar = {
          ['FUNCTION IDENTIFIER -> e', '$$ = "function " + $2 + "() { return " + $4 + ";}"'],
          ["NUMBER", "$$ = Number(yytext)"],
          ["IDENTIFIER e", "$$ = $1 + '(' + $2 + ')'"],
+         ['IF e THEN e ELSE e', '$$ = "(" + $2 + ") ? (" + $4 + ") : (" + $6 + ")"']
          // ["E",      "$$ = Math.E"],
          // ["PI",     "$$ = Math.PI"]
       ]
@@ -67,3 +63,5 @@ var parser = new Parser(grammar);
 
 console.log(parser.parse("fib n"));
 console.log(parser.parse("fun foo -> foo 3"));
+console.log(parser.parse("if 3 then 2 else 1"));
+console.log(parser.parse("fun bar -> if 3 then 2 else 1"));
