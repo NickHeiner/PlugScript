@@ -26,10 +26,10 @@ var grammar = {
    },
 
    "operators": [
+      ["left", "IF"],
       ["left", "<="],
       ["left", "+", '-'],
       ["left", "IDENTIFIER"],
-      ["left", "IF"]
    ],
 
    "bnf": {
@@ -38,13 +38,13 @@ var grammar = {
       "e" :[
          ['IDENTIFIER', '$$ = yytext'],
          ["( e )",  "$$ = '(' + $2 + ')'"],
-         ['FUNCTION IDENTIFIER IDENTIFIER -> e', '$$ = "function " + $2 + "(" + $3 + ") { return " + $5 + ";}"'],
          ["NUMBER", "$$ = Number(yytext)"],
          ["IDENTIFIER e", "$$ = $1 + '(' + $2 + ')'"],
          ['IF e THEN e ELSE e', '$$ = "(" + $2 + ") ? (" + $4 + ") : (" + $6 + ")"'],
          ["e + e",  "$$ = $1 + ' + ' + $3"],
          ["e - e",  "$$ = $1 + ' - ' + $3"],
-         ['e <= e', '$$ = $1 + " <= " + $3']
+         ['e <= e', '$$ = $1 + " <= " + $3'],
+         ['FUNCTION IDENTIFIER IDENTIFIER -> e', '$$ = "function " + $2 + "(" + $3 + ") {return " + $5 + ";}"']
       ]
    }
 };
@@ -55,4 +55,19 @@ console.log(parser.parse("fib n"));
 console.log(parser.parse("fun foo n -> n"));
 console.log(parser.parse("if 3 then 2 else 1"));
 console.log(parser.parse("fun bar y -> if y then 2 + y else 1"));
-console.log(parser.parse("fun fib n -> if n <= 1 then 0 else fib (n - 1) + fib (n - 2)"));
+console.log(parser.parse("fun fib n -> if n <= 1 then 1 else fib (n - 1) + fib (n - 2)"));
+
+function fib(n) {
+    return (n <= 1) ? (0) : (fib(n - 1) + fib(n - 2));
+}
+
+function fib(n) {
+    console.log('n', n);
+    // return n <= 1 ? 0 : (fib(n - 1) + fib(n - 2));
+
+    if (n <= 1) {
+        return 1;
+    } else {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
