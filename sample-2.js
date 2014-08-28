@@ -14,6 +14,7 @@ var grammar = {
          ['if',                      'return "IF"'],
          ['then',                    'return "THEN"'],
          ['else',                    'return "ELSE"'],
+         ["<=",                      "return '<='"],
          ["\\+",                     "return '+'"],
          ["\\-",                     "return '-'"],
          ["\\(",                     "return '('"],
@@ -25,7 +26,10 @@ var grammar = {
    },
 
    "operators": [
+      ["left", "<="],
       ["left", "+", '-'],
+      ["left", "IDENTIFIER"],
+      ["left", "IF"],
       // ["left", "+", "-"],
       // ["left", "*", "/"],
       // ["left", "^"],
@@ -38,23 +42,15 @@ var grammar = {
       "expressions": [["e EOF",   "return $1"]],
 
       "e" :[
-         // ["e + e",  "$$ = $1 + ' + ' + $3"],
-         // ["e - e",  "$$ = $1 + ' - ' + $3"],
-         // ["e - e",  "$$ = $1-$3"],
-         // ["e * e",  "$$ = $1*$3"],
-         // ["e / e",  "$$ = $1/$3"],
-         // ["e ^ e",  "$$ = Math.pow($1, $3)"],
-         // ["e !",    "$$ = (function(n) {if(n==0) return 1; return arguments.callee(n-1) * n})($1)"],
-         // ["e %",    "$$ = $1/100"],
-         // ["- e",    "$$ = -$2", {"prec": "UMINUS"}],
          ['IDENTIFIER', '$$ = yytext'],
          ["( e )",  "$$ = '(' + $2 + ')'"],
          ['FUNCTION IDENTIFIER IDENTIFIER -> e', '$$ = "function " + $2 + "(" + $3 + ") { return " + $5 + ";}"'],
          ["NUMBER", "$$ = Number(yytext)"],
          ["IDENTIFIER e", "$$ = $1 + '(' + $2 + ')'"],
-         ['IF e THEN e ELSE e', '$$ = "(" + $2 + ") ? (" + $4 + ") : (" + $6 + ")"']
-         // ["E",      "$$ = Math.E"],
-         // ["PI",     "$$ = Math.PI"]
+         ['IF e THEN e ELSE e', '$$ = "(" + $2 + ") ? (" + $4 + ") : (" + $6 + ")"'],
+         ["e + e",  "$$ = $1 + ' + ' + $3"],
+         ["e - e",  "$$ = $1 + ' - ' + $3"],
+         ['e <= e', '$$ = $1 + " <= " + $3']
       ]
    }
 };
@@ -64,4 +60,5 @@ var parser = new Parser(grammar);
 console.log(parser.parse("fib n"));
 console.log(parser.parse("fun foo n -> n"));
 console.log(parser.parse("if 3 then 2 else 1"));
-console.log(parser.parse("fun bar y -> if y then 2 else 1"));
+console.log(parser.parse("fun bar y -> if y then 2 + y else 1"));
+console.log(parser.parse("fun fib n -> if n <= 1 then 0 else fib (n - 1) + fib (n - 2)"));
