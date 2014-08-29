@@ -56,18 +56,3 @@ console.log(parser.parse("fun foo n -> n"));
 console.log(parser.parse("if 3 then 2 else 1"));
 console.log(parser.parse("fun bar y -> if y then 2 + y else 1"));
 console.log(parser.parse("fun fib n -> if n <= 1 then 1 else fib (n - 1) + fib (n - 2)"));
-
-function fib(n) {
-    return (n <= 1) ? (0) : (fib(n - 1) + fib(n - 2));
-}
-
-function fib(n) {
-    console.log('n', n);
-    // return n <= 1 ? 0 : (fib(n - 1) + fib(n - 2));
-
-    if (n <= 1) {
-        return 1;
-    } else {
-        return fib(n - 1) + fib(n - 2);
-    }
-}
