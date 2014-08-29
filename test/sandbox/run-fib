@@ -5,6 +5,6 @@
 var fib = require('./fib'),
     _ = require('lodash');
 
-_.range(5).forEach(function(index) {
-    console.log('fib(%s)\t%s', index, fib(index));
+_.range(10).forEach(function(index) {
+    console.log('fib(%s)\t\t%s', index, fib(index));
 });

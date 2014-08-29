@@ -38,10 +38,14 @@ describe('psc', function() {
             return expect(psc({code: 'fun fib n -> n + 1'})).to.equal(prefixWithUseStrict('function fib(n) {return n + 1;};'));
         });
 
+        it('compiles two func applications', function() {
+            return expect(psc({code: '(sum x) + (sum y)'})).to.equal(prefixWithUseStrict('(sum(x)) + (sum(y));'));
+        });
+
         it('compiles fib', function() {
             var fibFilePath = path.join(__dirname, '..', 'fixtures', 'fib.pluggie');
             return expect(psc({file: fibFilePath})).to.equal(
-                prefixWithUseStrict('function fib(n) {return (n <= 1) ? (1) : (fib(n - 1) + fib(n - 2));};')
+                prefixWithUseStrict('function fib(n) {return (n <= 1) ? (1) : ((fib(n - 1)) + (fib(n - 2)));};')
             );
         });
 
