@@ -8,7 +8,7 @@
 'if'            return 'IF';
 'then'          return 'THEN';
 'else'          return 'ELSE';
-'<='            return '<=';
+'<='            return 'LT_EQ';
 '+'             return '+';
 '-'             return '-'
 '('             return '(';
@@ -20,7 +20,7 @@
 /lex
 
 %left IF
-%left '<='
+%left LT_EQ
 %left '+' '-'
 %left FUNCTION_ARROW
 %left IDENTIFIER
@@ -49,7 +49,7 @@ e
 		{$$ = $1 + ' + ' + $3;}
     | e '-' e
 		{$$ = $1 + ' - ' + $3;}
-    | e '<=' e
+    | e LT_EQ e
 		{$$ = $1 + " <= " + $3;}
     | FUNCTION IDENTIFIER IDENTIFIER FUNCTION_ARROW e
 		{$$ = "function " + $2 + "(" + $3 + ") {return " + $5 + ";}"}
