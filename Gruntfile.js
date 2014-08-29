@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
         shell: {
             e2e: {
-                command: 'bin/psc test/fixtures/fib.pluggie'
+                command: 'bin/psc -f test/fixtures/fib.pluggie'
             }
         }
     });

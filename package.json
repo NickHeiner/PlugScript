@@ -1,6 +1,6 @@
 {
   "name": "PlugScript",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A toy programming language",
   "main": "lib/psc.js",
   "bin": "bin/psc",
@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "chai-as-promised": "^4.1.1",
+    "commander": "^2.3.0",
     "jison": "^0.4.15",
     "lodash": "^2.4.1",
     "through": "^2.3.4",
