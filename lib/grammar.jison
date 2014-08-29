@@ -4,7 +4,7 @@
 %%
 \s+             /* skip whitespace */
 'fun'           return 'FUNCTION';
-'->'            return '->';
+'->'            return 'FUNCTION_ARROW';
 'if'            return 'IF';
 'then'          return 'THEN';
 'else'          return 'ELSE';
@@ -19,11 +19,11 @@
 
 /lex
 
-%left 'IF'
+%left IF
 %left '<='
 %left '+' '-'
-%left '->'
-%left 'IDENTIFIER'
+%left FUNCTION_ARROW
+%left IDENTIFIER
 
 %start expressions
 
@@ -51,6 +51,6 @@ e
 		{$$ = $1 + ' - ' + $3;}
     | e '<=' e
 		{$$ = $1 + " <= " + $3;}
-    | FUNCTION IDENTIFIER IDENTIFIER '->' e
+    | FUNCTION IDENTIFIER IDENTIFIER FUNCTION_ARROW e
 		{$$ = "function " + $2 + "(" + $3 + ") {return " + $5 + ";}"}
     ;
