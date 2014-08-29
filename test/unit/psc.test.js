@@ -41,7 +41,7 @@ describe('psc', function() {
         it('compiles fib', function() {
             var fibFilePath = path.join(__dirname, '..', 'fixtures', 'fib.pluggie');
             return expect(psc({file: fibFilePath})).to.equal(
-                prefixWithUseStrict('function fib(n) {return (n <= 1) ? (1) : (fib((n - 1) + fib((n - 2))));};')
+                prefixWithUseStrict('function fib(n) {return (n <= 1) ? (1) : (fib(n - 1) + fib(n - 2));};')
             );
         });
 
