@@ -18,4 +18,8 @@ describe('psc', function() {
         return expect(psc({code: 'fib n'})).to.equal(prefixWithUseStrict('fib(n);'));
     });
 
+    it.skip('compiles a function declaration', function() {
+        return expect(psc({code: 'fun fib n -> n + 1'})).to.equal(prefixWithUseStrict('function fib(n) {return n + 1;};'));
+    });
+
 });

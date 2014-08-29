@@ -2,26 +2,27 @@
 
 %lex
 %%
-\s+             {/* skip whitespace */}
-'fun'           {return 'FUNCTION';}
-'->'            {return '->';}
-'if'            {return 'IF';}
-'then'          {return 'THEN';}
-'else'          {return 'ELSE';}
-'<='            {return '<=';}
-'+'             {return '+';}
-'-'             {return '-'}
-'('             {return '(';}
-')'             {return ')';}
-\d+\b           {return 'NUMBER';}
-\w+\b           {return 'IDENTIFIER';}
-<<EOF>>         {return 'EOF';}
+\s+             /* skip whitespace */
+'fun'           return 'FUNCTION';
+'->'            return '->';
+'if'            return 'IF';
+'then'          return 'THEN';
+'else'          return 'ELSE';
+'<='            return '<=';
+'+'             return '+';
+'-'             return '-'
+'('             return '(';
+')'             return ')';
+\d+\b           return 'NUMBER';
+\w+\b           return 'IDENTIFIER';
+<<EOF>>         return 'EOF';
 
 /lex
 
 %left 'IF'
 %left '<='
 %left '+' '-'
+%left '->'
 %left 'IDENTIFIER'
 
 %start expressions
