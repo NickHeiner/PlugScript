@@ -13,8 +13,8 @@
 '-'             {return '-'}
 '('             {return '(';}
 ')'             {return ')';}
-0-9+\b          {return 'NUMBER';}
-a-zA-Z0-9+\b    {return 'IDENTIFIER';}
+[0-9]+\b          {return 'NUMBER';}
+[a-zA-Z0-9]+\b    {return 'IDENTIFIER';}
 <<EOF>>         {return 'EOF';}
 
 /lex

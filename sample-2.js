@@ -51,6 +51,7 @@ var grammar = {
 
 var parser = new Parser(grammar);
 
+console.log(parser.parse("1 + 1"));
 console.log(parser.parse("fib n"));
 console.log(parser.parse("fun foo n -> n"));
 console.log(parser.parse("if 3 then 2 else 1"));

@@ -7,7 +7,7 @@ var expect = require('chai').expect,
 describe('psc', function() {
 
     it('compiles simple addition', function() {
-        return expect(psc({code: '1 + 2'})).to.eventually.deep.equal('1 + 2');
+        return expect(psc({code: '1 + 2'})).to.equal('1 + 2');
     });
 
 });
