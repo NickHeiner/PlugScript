@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-var compiledCode = require('..')(process.argv[2]);
-compiledCode.pipe(process.stdout);
+var compiledCode = require('..')({file: process.argv[2]});
+console.log(compiledCode);
