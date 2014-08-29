@@ -14,6 +14,10 @@ describe('psc', function() {
         return expect(psc({code: '1 + 2'})).to.equal(prefixWithUseStrict('1 + 2;'));
     });
 
+    it('compiles simple subtraction', function() {
+        return expect(psc({code: '1 - 2'})).to.equal(prefixWithUseStrict('1 - 2;'));
+    });
+
     it('compiles a function call', function() {
         return expect(psc({code: 'fib n'})).to.equal(prefixWithUseStrict('fib(n);'));
     });
