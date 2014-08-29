@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
             test: {
                 files: {
-                    src: 'test/**/*.js'
+                    src: ['test/**/*.js', '!test/sandbox/**/*.*']
                 },
                 options: {
                     globals: {
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
         shell: {
             e2e: {
-                command: 'bin/psc -f test/fixtures/fib.pluggie'
+                command: 'bin/psc -f test/fixtures/fib.pluggie > test/sandbox/fib.js && test/sandbox/run-fib'
             }
         }
     });

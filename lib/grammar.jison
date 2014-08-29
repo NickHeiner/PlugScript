@@ -31,7 +31,7 @@
 
 expressions
     : e EOF
-        {return '"use strict";\n\n' + $1 + ';';}
+        {return '"use strict";\n\nmodule.exports = ' + $1 + ';';}
     ;
 
 e

@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fib = require('./fib'),
+    _ = require('lodash');
+
+_.range(5).forEach(function(index) {
+    console.log('fib(%s)\t%s', index, fib(index));
+});

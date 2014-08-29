@@ -1,1 +1,4 @@
 /node_modules/
+
+# I should really just ignore everything in test/sandbox but I'm trying to not spend all day on this project.
+/test/sandbox/fib.js

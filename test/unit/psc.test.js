@@ -15,7 +15,7 @@ describe('psc', function() {
         // to what we expect. It would also be nice to lint the generated js.
 
         function prefixWithUseStrict(code) {
-            return '"use strict";\n\n' + code;
+            return '"use strict";\n\nmodule.exports = ' + code;
         }
 
         it('compiles simple addition', function() {
