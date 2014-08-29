@@ -1,4 +1,5 @@
 /* PlugScript grammar */
+/* This could be a LOT cleaner and interesting, but I'm trying to limit scope. */
 
 %lex
 %%
