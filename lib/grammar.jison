@@ -30,7 +30,7 @@
 
 expressions
     : e EOF
-        {return $1;}
+        {return '"use strict";\n\n' + $1 + ';';}
     ;
 
 e
