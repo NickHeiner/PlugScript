@@ -21,9 +21,9 @@
 
 %left IF
 %left LT_EQ
-%left '+' '-'
 %left FUNCTION_ARROW
 %left IDENTIFIER
+%left '+' '-'
 
 %start expressions
 
@@ -52,5 +52,5 @@ e
     | e LT_EQ e
 		{$$ = $1 + " <= " + $3;}
     | FUNCTION IDENTIFIER IDENTIFIER FUNCTION_ARROW e
-		{$$ = "function " + $2 + "(" + $3 + ") {return " + $5 + ";}"}
+        {$$ = "function " + $2 + "(" + $3 + ") {return " + $5 + ";}"}
     ;

@@ -28,7 +28,7 @@ describe('psc', function() {
             return expect(psc({code: 'if 3 <= 5 then 1 else 0'})).to.equal(prefixWithUseStrict('(3 <= 5) ? (1) : (0);'));
         });
 
-        it.skip('compiles a function declaration', function() {
+        it('compiles a function declaration', function() {
             return expect(psc({code: 'fun fib n -> n + 1'})).to.equal(prefixWithUseStrict('function fib(n) {return n + 1;};'));
         });
 
