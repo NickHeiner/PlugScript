@@ -10,6 +10,10 @@ describe('psc', function() {
 
     describe('successfully', function() {
 
+        // Instead of making assertions about exactly what the output js will be,
+        // it would be nice to just run it and ensure that the results are equivalent
+        // to what we expect. It would also be nice to lint the generated js.
+
         function prefixWithUseStrict(code) {
             return '"use strict";\n\n' + code;
         }
