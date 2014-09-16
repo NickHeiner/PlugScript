@@ -1,5 +1,5 @@
 {
-  "name": "PlugScript",
+  "name": "plug-script",
   "version": "1.0.0",
   "description": "A toy programming language",
   "main": "lib/psc.js",
