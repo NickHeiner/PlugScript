@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var program = require('commander'),
+    psc = require('..');
+
+program
+    .version(require('../package.json').version)
+    .option('-f, --file <file>', 'Specify an input file')
+    .option('-c, --code <code>', 'Specify code as a string')
+    .option('-r, --run', 'Run the generated code')
+    .parse(process.argv);
+
+var compiledCode = psc(program);
+console.log(compiledCode);

@@ -1,8 +1,9 @@
 {
   "name": "PlugScript",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A toy programming language",
-  "main": "bin/psc.js",
+  "main": "lib/psc.js",
+  "bin": "bin/psc",
   "scripts": {
     "test": "grunt test"
   },
@@ -20,5 +21,23 @@
   "bugs": {
     "url": "https://github.com/NickHeiner/PlugScript/issues"
   },
-  "homepage": "https://github.com/NickHeiner/PlugScript"
+  "homepage": "https://github.com/NickHeiner/PlugScript",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-mocha-test": "^0.11.0",
+    "grunt-shell": "^0.7.0",
+    "load-grunt-tasks": "^0.6.0",
+    "q": "^1.0.1"
+  },
+  "dependencies": {
+    "chai-as-promised": "^4.1.1",
+    "commander": "^2.3.0",
+    "jison": "^0.4.15",
+    "lodash": "^2.4.1",
+    "through": "^2.3.4",
+    "underscore.string": "^2.3.3"
+  }
 }
